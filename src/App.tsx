@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Box } from "@mui/material";
 import Container from "@mui/material/Container";
 import Table from "@mui/material/Table";
