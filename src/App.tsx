@@ -9,23 +9,12 @@ import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import CircularProgress from '@mui/material/CircularProgress';
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import JoditEditor from "jodit-react";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+
 const config = {
   readonly: false,
   placeholder: "Start typings...",
@@ -40,7 +29,8 @@ const App = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const sendEmail = async(email)=>{
+
+  const sendEmail = async(email: any)=>{
     setIsLoading(true)
     try{
         const {data} = await axios.post('https://nodemailer-backend-portfolio.vercel.app/api/v1/mail/send-mail',{
@@ -87,7 +77,7 @@ const App = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {response.map((ele) => {
+                {response.map((ele:any) => {
                   return (
                     <>
                       <TableCell align="left">{ele.name}</TableCell>
@@ -102,9 +92,9 @@ const App = () => {
                             ref={editor}
                             value={content}   
                             config={config}
-                            tabIndex={1} // tabIndex of textarea
+                            // tabIndex={1} // tabIndex of textarea
                             onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                            onChange={(newContent) => {}}
+                            onChange={(newContent:any) => {}}
                           />
                           <Stack bgcolor={"white"} direction={"row"}>
                             <Button onClick={()=>sendEmail(ele.email)} disabled={isLoading}>{
