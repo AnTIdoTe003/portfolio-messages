@@ -94,7 +94,7 @@ const App = () => {
                             config={config}
                             // tabIndex={1} // tabIndex of textarea
                             onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                            onChange={(newContent:any) => {}}
+                            
                           />
                           <Stack bgcolor={"white"} direction={"row"}>
                             <Button onClick={()=>sendEmail(ele.email)} disabled={isLoading}>{
